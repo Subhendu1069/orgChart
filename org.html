@@ -1,0 +1,74 @@
+<head>
+<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+
+   <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['orgchart']});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Name');
+      data.addColumn('string', 'Manager');
+      data.addColumn('string', 'ToolTip');
+      data.addRows([
+        [{v:'Row0', f:'<img src="Image/r.png"/><button type="button" class="btn btn-primary btn-lg">FirstName LastName<br><span style="color:white; font-style:italic">President</span></button>'}, '', 'The President'],
+        [{v:'Row1', f:'<img src="Image/r.png"/><button type="button" class="btn btn-primary btn-md">FirstName LastName<br><span style="color:white; font-style:italic">Vice President</span></button>'}, 'Row0', 'VP'],
+          [{v:'Row2', f:'<img src="Image/r.png"/><button type="button" class="btn btn-success btn-xs">FirstName LastName<br><span style="color:white; font-style:italic">Vice President</span></button>'}, 'Row0', 'Onsite'],
+          [{v:'Row3', f:'<img src="Image/r.png"/><button type="button" class="btn btn-primary btn-lg">FirstName LastName<br><span style="color:white; font-style:italic">Designation</span></button>'}, 'Row2', ''],
+         
+          [{v:'Row4', f:'<img src="Image/r.png"/><button type="button" class="btn btn-success btn-lg">FirstName LastName<br><span style="color:white; font-style:italic">Designation</span></button>'}, 'Row3', 'Onsite'],
+          [{v:'Row5', f:'<img src="Image/r.png"/><button type="button" class="btn btn-success btn-lg">FirstName LastName<br><span style="color:white; font-style:italic">Designation</span></button>'}, 'Row0', 'Onsite'],
+          [{v:'Row6', f:'<img src="Image/r.png"/><button type="button" class="btn btn-success btn-xs">FirstName LastName<br><span style="color:white; font-style:italic">Designation</span></button>'}, 'Row1', 'Onsite'],
+          [{v:'Row7', f:'<img src="Image/r.png"/><button type="button" class="btn btn-primary btn-lg">FirstName LastName<br><span style="color:white; font-style:italic">Designation</span></button>'}, 'Row6', ''],
+          [{v:'Row8', f:'<img src="Image/r.png"/><button type="button" class="btn btn-primary btn-lg">FirstName LastName<br><span style="color:white; font-style:italic">Designation</span></button>'}, 'Row6', ''],
+          ]);
+                var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+        chart.draw(data, {
+          allowHtml:true,
+          selectedNodeClass: '#fff',
+          allowCollapse:true,
+          size:'large',
+          nodeClass:'maman',
+          } );
+    }
+    </script>
+    <style>
+.maman {
+  color: Black;
+  width: 160px;
+  text-align: center;
+}
+
+.google-visualization-orgchart-lineleft {
+  border-left: 2px solid #333!important;
+}
+.google-visualization-orgchart-linebottom {
+  border-bottom: 2px solid #333!important;
+}
+.google-visualization-orgchart-lineright {
+  border-right: 2px solid #333!important;
+}
+.maman img {
+  clear: both;
+  display: block;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px
+}
+body {
+    background-color: grey;
+    }
+</style>
+</head>
+<body>
+    <div id='chart_div'></div>
+</body>
+</html>
