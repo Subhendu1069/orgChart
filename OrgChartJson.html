@@ -1,0 +1,114 @@
+<html>
+  <head>
+  <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+    
+    // Load the Visualization API and the orgchart package.
+    google.charts.load('current', {'packages':['orgchart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+  var jsonData = {
+  "cols": [
+        {"id":"name","label":"Name","type":"string"},
+        {"id":"manager","label":"Manager","type":"string"},
+        {"id":"tooltip","label":"Tooltip","type":"string"}
+      ],
+  "rows": [
+        {"c":[
+          {"v":'0', "f":'<img src="Image/banner1.png"/><button type="button" class="btn btn-primary btn-lg">FirstName LastName<br><span>President</span></button>'},
+          {"v":"0"},
+          {"v":"President"}
+        ]},
+        {"c":[
+          {"v":'1', "f":'<img src="Image/r.png"/><button type="button" class="btn btn-primary btn-md">FirstName LastName<br><span>Vice President</span></button>'},
+          {"v":"0"},
+          {"v":"Vice President"}
+        ]},
+        {"c":[
+          {"v":'2', "f":'<img src="Image/r.png"/><button type="button" class="btn btn-success btn-xs">FirstName LastName<br><span>Designation</span></button>'},
+          {"v":"0"},
+          {"v":"Onsite"}
+        ]},
+        {"c":[
+          {"v":'3', "f":'<img src="Image/r.png"/><button type="button" class="btn btn-success btn-lg">FirstName LastName<br><span>Designation</span></button>'},
+          {"v":"1"},
+          {"v":"Onsite"}
+        ]},
+        {"c":[
+          {"v":'4', "f":'<img src="Image/r.png"/><button type="button" class="btn btn-success btn-xs">FirstName LastName<br><span>Designation</span></button> '},
+          {"v":"3"},
+          {"v":"Onsite"}
+        ]}
+      ]
+};
+  var data = new google.visualization.DataTable(jsonData);
+  var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+  chart.draw(data, {
+          allowHtml:true,
+          selectedNodeClass: 'sav1',
+          allowCollapse:true,
+          nodeClass:'sav',
+          } );
+}
+    </script>
+    
+    <style>
+    
+.sav1 button{
+  font-size: 18px;
+  line-height: 2;
+
+}
+.sav {
+  color: black;
+  width: 160px;
+  text-align: center;
+}
+
+.google-visualization-orgchart-lineleft {
+  border-left: 2px solid #333!important;
+}
+.google-visualization-orgchart-linebottom {
+  border-bottom: 2px solid #333!important;
+}
+.google-visualization-orgchart-lineright {
+  border-right: 2px solid #333!important;
+}
+.sav span{
+  color: white;
+  font-style: italic;
+}
+.sav img {
+  clear: both;
+  display: block;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px
+}
+body {
+    background-color: grey;
+    }
+</style>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+    
+  </body>
+</html>
